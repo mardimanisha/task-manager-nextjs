@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Tasks = () => {
   return (
-    <div className="bg-black text-white p-3 mb-3 rounded shadow">Tasks</div>
+    <div className="bg-slate-950 text-white p-3 my-5 rounded shadow cursor-pointer">task</div>
   )
 }
 
