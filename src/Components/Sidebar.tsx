@@ -9,28 +9,28 @@ export const Sidebar = () => {
   }
 
   return (
-        <aside className='w-[18.75rem] flex flex-col justify-between bg-slate-950 h-full py-6 pl-4 text-white'>
+        <aside className='w-[18.75rem] flex flex-col justify-between bg-white-webSafe h-full py-6 pl-4 text-black shadow-lg'>
           <div>
           <p className='text-medium-grey text-[.95rem] font-semibold uppercase pb-3'>All Boards (0)</p>
-            <div className='cursor-pointer flex items-center space-x-2 my-2 mr-4 p-3 hover:bg-slate-800 hover:rounded-lg transition-all duration-200'> Current board name</div>
-            <div className='cursor-pointer flex items-center space-x-2 my-2 mr-4 p-3 hover:bg-slate-800 hover:rounded-lg transition-all duration-200'>
+            <div className='cursor-pointer flex items-center space-x-2 my-2 mr-4 p-3 hover:bg-gray-200 hover:rounded-lg transition-all duration-200'> Current board name</div>
+            <div className='cursor-pointer flex items-center space-x-2 my-2 mr-4 p-3 hover:bg-gray-200 hover:rounded-lg transition-all duration-200'>
                 <FiPlusCircle />
                 <p>Create New Board</p>
             </div>
           </div>
 
-          <div className="flex flex-row justify-between items-center mr-4 p-1 bg-slate-800 rounded-lg">
-            <button onClick={toggleTheme} className={`flex items-center space-x-1 px-9 py-1 bg-slate-950 text-white rounded-lg transition-colors duration-300 ${
-                        theme === 'dark' ? 'bg-slate-950 text-white' : 'bg-slate-800 '
+          <div className="flex flex-row justify-between items-center mr-4 mb-4 p-1 rounded-lg shadow-black ">
+            <button onClick={toggleTheme} className={`flex items-center space-x-1 px-9 py-1 text-black rounded-lg transition-colors duration-300 ${
+                        theme === 'dark' ? 'bg-slate-950 text-white-ghost' : 'bg-white-webSafe'
                     }`}>
-              <FiMoon className="text-white" />
+              <FiMoon className={theme === 'dark' ? 'text-white-ghost' : 'text-black'} />
               <span>Dark</span>
             </button>
 
-            <button onClick={toggleTheme} className={`flex items-center space-x-1 px-9 py-1 text-white rounded-lg transition-colors duration-300 ${
-                        theme === 'light' ? 'bg-slate-700 text-white' : 'bg-slate-800 text-gray-400'
+            <button onClick={toggleTheme} className={`flex items-center space-x-1 px-9 py-1 text-black rounded-lg transition-colors duration-300 ${
+                        theme === 'light' ? 'bg-gray-200 text-black' : 'text-black'
                     }`}>
-              <FiSun className={theme === 'light' ? 'text-white' : 'text-gray-400'} />
+              <FiSun className='black' />
               <span>Light</span>
             </button>
           </div>

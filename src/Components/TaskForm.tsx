@@ -1,10 +1,15 @@
 import React from 'react'
 import { RxCross2 } from 'react-icons/rx'
 
-export const TaskForm = ({onClose}) => {
+interface TaskFormProps {
+    onClose: (event: React.MouseEvent<HTMLElement | SVGElement>) => void;
+}
+
+export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
+
   return (
-    <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 w-112'>
-        <div className='bg-gray-800 text-white p-6 rounded-lg shadow-lg'>
+    <div className='fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-70 w-112'>
+        <div className='bg-white-webSafe text-black p-6 rounded-lg shadow-lg'>
             <div className='flex flex-row items-baseline justify-between'>
                 <h2 className='text-xl font-semibold mb-4'>Task Details</h2>
                 <RxCross2 onClick={onClose} className='cursor-pointer text-gray-500 hover:text-gray-400 hover:scale-y-125 hover:scale-x-125 transition-color duration-300'/> 
@@ -16,8 +21,8 @@ export const TaskForm = ({onClose}) => {
                 </div>
 
                 <div className='my-4'>
-                    <label className='block text-gray-300 mb-2'>Your Task</label>
-                    <input type="text" placeholder="Enter your task" className=' w-full p-2 bg-gray-700 rounded-md border border-gray-600 text-white hover:border-gray-400'/>
+                    <label className='block text-black mb-2'>Your Task</label>
+                    <input type="text" placeholder="Enter your task" className=' w-full p-2 bg-white-ghost rounded-md border border-gray-500 shadow-lg text-white hover:border-gray-400'/>
                 </div>
 
                 <div className='mb-4'>
@@ -32,7 +37,7 @@ export const TaskForm = ({onClose}) => {
 
                 <div className='mb-4'>
                     <label htmlFor="" className='block text-gray-300 mb-2'>Tags</label>
-                    <input type="text" className='w-full p-2 bg-gray-700 rounded-md border border-gray-600 text-white hover:border-gray-400' />
+                    <input type="text" placeholder='Add tags' className='w-full p-2 bg-gray-700 rounded-md border border-gray-600 text-white hover:border-gray-400' />
                 </div>
 
                 <div className='space-x-4 mt-6'>
