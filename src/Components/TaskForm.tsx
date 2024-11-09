@@ -22,12 +22,12 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 
                 <div className='my-4'>
                     <label className='block text-black mb-2'>Your Task</label>
-                    <input type="text" placeholder="Enter your task" className=' w-full p-2 bg-white-ghost rounded-md border border-gray-500 shadow-lg text-white hover:border-gray-400'/>
+                    <input type="text" placeholder="Enter your task" className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'/>
                 </div>
 
                 <div className='mb-4'>
-                    <label className='block text-gray-300 mb-2'>Status</label>
-                    <select name="" id="" className='cursor-pointer w-full p-2 bg-gray-700 rounded-md border border-gray-600 text-white hover:border-gray-400'>
+                    <label className='block text-black mb-2'>Status</label>
+                    <select name="" id="" className='w-full p-2 text-gray-400 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'>
                         <option value="Backlog">Backlog</option>
                         <option value="In Progress">In Progress</option>
                         <option value="In Review">In Review</option>
@@ -36,13 +36,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
                 </div>
 
                 <div className='mb-4'>
-                    <label htmlFor="" className='block text-gray-300 mb-2'>Tags</label>
-                    <input type="text" placeholder='Add tags' className='w-full p-2 bg-gray-700 rounded-md border border-gray-600 text-white hover:border-gray-400' />
+                    <label htmlFor="" className='block text-black mb-2'>Tags</label>
+                    <input type="text" placeholder='Add tags' className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none' />
                 </div>
 
                 <div className='space-x-4 mt-6'>
-                    <button className='w-24 px-4 py-2 bg-blue-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300'>Save</button>
-                    <button onClick={onClose} className='w-24 px-4 py-2 bg-blue-800 text-white rounded-full hover:bg-gray-700 transition-colors duration-300'>Cancel</button>
+                    <button className='w-24 px-4 py-2 bg-sky-500 rounded-full hover:bg-sky-600 transition-colors duration-300'>Save</button>
+                    <button onClick={onClose} className='w-24 px-4 py-2 bg-sky-500 rounded-full hover:bg-sky-600 transition-colors duration-300'>Cancel</button>
                 </div>
             </form>
         </div>
