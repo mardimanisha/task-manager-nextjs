@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdEdit } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx'
 
 interface TaskFormProps {
@@ -11,7 +12,11 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
     <div className='fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-70 w-112'>
         <div className='bg-white-webSafe text-black p-6 rounded-lg shadow-lg'>
             <div className='flex flex-row items-baseline justify-between'>
-                <h2 className='text-xl font-semibold mb-4'>Task Details</h2>
+                <div className='flex flex-row mb-4 items-center'>
+                  <h2 className='text-xl font-semibold'>Task Details</h2>
+                  <MdEdit className='ml-2'/>
+                </div>
+                
                 <RxCross2 onClick={onClose} className='cursor-pointer text-gray-500 hover:text-gray-400 hover:scale-y-125 hover:scale-x-125 transition-color duration-300'/> 
             </div>
 

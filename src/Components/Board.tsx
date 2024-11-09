@@ -13,7 +13,7 @@ export const Board = () => {
 
 
   return (
-      <div className="grid grid-cols-4 gap-0">
+      <div className="grid grid-cols-4 gap-0 px-5">
         {columns.map((column) => (
           <Column key={column.id} title={column.title} />
         ))}
