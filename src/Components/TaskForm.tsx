@@ -4,9 +4,19 @@ import { RxCross2 } from 'react-icons/rx'
 
 interface TaskFormProps {
     onClose: (event: React.MouseEvent<HTMLElement | SVGElement>) => void;
+    onSubmit: (data: { coverPhoto: string; task: string; status: string; tags: string }) => void;
 }
 
-export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
+export const TaskForm: React.FC<TaskFormProps> = ({ onClose, onSubmit }) => {
+    const [coverPhoto, setCoverPhoto] = useState('')
+    const [task, setTask] = useState('')
+    const [status, setStatus] = useState('')
+    const [tags, setTags] = useState('')
+
+    const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        onSubmit({coverPhoto, task, status, tags})
+    }
 
   return (
     <div className='fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-70 w-112'>
@@ -20,19 +30,29 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
                 <RxCross2 onClick={onClose} className='cursor-pointer text-gray-500 hover:text-gray-400 hover:scale-y-125 hover:scale-x-125 transition-color duration-300'/> 
             </div>
 
-            <form action="">
+            <form onSubmit={handleSubmit}>
                 <div>
                     <img src="https://plus.unsplash.com/premium_photo-1729275301530-d76a5a603b41?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cover Photo" className='w-96 h-24 object-cover rounded-lg'  />
+                    <input type="file" className="mt-2" />
                 </div>
 
                 <div className='my-4'>
                     <label className='block text-black mb-2'>Your Task</label>
-                    <input type="text" placeholder="Enter your task" className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'/>
+                    <input 
+                      type="text" 
+                      placeholder="Enter your task" 
+                      className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'
+                      value={task}
+                      onChange={(e) => setTask(e.target.value)}/>
                 </div>
 
                 <div className='mb-4'>
                     <label className='block text-black mb-2'>Status</label>
-                    <select name="" id="" className='w-full p-2 text-gray-400 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'>
+                    <select 
+                      name="status" 
+                      className='w-full p-2 text-gray-400 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'
+                      value={status}
+                      onChange={(e) => setTask(e.target.value)}>
                         <option value="Backlog">Backlog</option>
                         <option value="In Progress">In Progress</option>
                         <option value="In Review">In Review</option>
@@ -42,7 +62,12 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose }) => {
 
                 <div className='mb-4'>
                     <label htmlFor="" className='block text-black mb-2'>Tags</label>
-                    <input type="text" placeholder='Add tags' className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none' />
+                    <input 
+                      type="text" 
+                      placeholder='Add tags' 
+                      className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none' 
+                      value={tags}
+                      onChange={(e) => setTask(e.target.value)}/>
                 </div>
 
                 <div className='space-x-4 mt-6'>
