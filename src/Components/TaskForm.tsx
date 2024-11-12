@@ -52,7 +52,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose, onSubmit }) => {
                       name="status" 
                       className='w-full p-2 text-gray-400 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none'
                       value={status}
-                      onChange={(e) => setTask(e.target.value)}>
+                      onChange={(e) => setStatus(e.target.value)}>
                         <option value="Backlog">Backlog</option>
                         <option value="In Progress">In Progress</option>
                         <option value="In Review">In Review</option>
@@ -67,7 +67,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose, onSubmit }) => {
                       placeholder='Add tags' 
                       className='w-full p-2 bg-white-ghost rounded-md border border-gray-300 shadow-lg hover:border-gray-400 transition-colors duration-300 focus:outline-none' 
                       value={tags}
-                      onChange={(e) => setTask(e.target.value)}/>
+                      onChange={(e) => setTags(e.target.value)}/>
                 </div>
 
                 <div className='space-x-4 mt-6'>
