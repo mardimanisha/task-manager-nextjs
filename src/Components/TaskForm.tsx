@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React, { useState } from 'react'
 import { MdEdit } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx'
@@ -8,7 +9,7 @@ interface TaskFormProps {
 }
 
 export const TaskForm: React.FC<TaskFormProps> = ({ onClose, onSubmit }) => {
-    const [coverPhoto, setCoverPhoto] = useState('')
+    const [coverPhoto, setCoverPhoto] = useState('https://plus.unsplash.com/premium_photo-1729275301530-d76a5a603b41?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
     const [task, setTask] = useState('')
     const [status, setStatus] = useState('')
     const [tags, setTags] = useState('')
@@ -16,6 +17,17 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose, onSubmit }) => {
     const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
         onSubmit({coverPhoto, task, status, tags})
+    }
+
+    const handleCoverPhotoChange = (e: React.ChangeEvent<HTMLInputElement>)=>{
+        const file = e.target.files?.[0];
+        if(file){
+            const reader = new FileReader();
+            reader.onloadend = () =>{
+                setCoverPhoto(reader.result as string)
+            }
+            reader.readAsDataURL(file)
+        }
     }
 
   return (
@@ -32,7 +44,13 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onClose, onSubmit }) => {
 
             <form onSubmit={handleSubmit}>
                 <div>
-                    <img src="https://plus.unsplash.com/premium_photo-1729275301530-d76a5a603b41?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cover Photo" className='w-96 h-24 object-cover rounded-lg'  />
+                    <Image 
+                      src={coverPhoto} 
+                      alt="Cover Photo" 
+                      width={96}
+                      height={24}
+                      className='w-96 h-24 object-cover rounded-lg' 
+                      onChange={handleCoverPhotoChange} />
                     <input type="file" className="mt-2" />
                 </div>
 
